@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        let student=[];
+        let students=[];
         let totalstudent=0;
         let passstudent=0;
-        let failstudent=0; 
+        let failstudent=0;
+        let  percentage; 
         const studentform=()=>{
             totalstudent++;
-            let id=Number(document.getElementById("studentid"));
-            let name=document.getElementById("studentname");
-            let English=Number(document.getElementById("english"));
-            let Math=Number(document.getElementById("math"));
-           let Science=Number(document.getElementById("science"));
+            let id=Number(document.getElementById("studentid").value);
+            let name=document.getElementById("studentname").value;
+            let English=Number(document.getElementById("english").value);
+            let Math=Number(document.getElementById("math").value);
+           let Science=Number(document.getElementById("science").value);
            let total=English+Math+Science;
-           let percentage=(total/3)*100;
+            percentage=(total/300)*100;
+            let  result;
            if(percentage>=35){
-            let result="P";
+           result="P";
             passstudent++;
            }
            else{
@@ -27,20 +29,27 @@
             result="F";
            }
            let st={"RollNo":id,"Name":name,"English":English,"Math":Math,"Science":Science,"Total":total,"Percenatge":percentage,"Result":result};
-            student.push(st);
+            students.push(st);
             alert("student added succesfully");
             display();
             cleardata();
-
-
         }
         const display=()=>{
             let i;
-            let data="";
+            let data=" ";
             for(i=0;i<students.length;i++){
-                data=data+"<tr><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].Marks+"</td></tr>";
+                if(percentage>=35){
+                data=data+"<tr><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].English+"</td><td>"+students[i].Math+"</td><td>"+students[i].Science+"</td><td>"+students[i].Total+"</td><td>"+students[i].Percenatge+"</td><td style='color:green'>"+students[i].Result+"</td>";
+                    }
+                    else{
+                    data=data+"<tr><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].English+"</td><td>"+students[i].Math+"</td><td>"+students[i].Science+"</td><td>"+students[i].Total+"</td><td>"+students[i].Percenatge+"</td><td style='color:red'>"+students[i].Result+"</td>";
+
+                    }
             }
             document.getElementById("tbldata").innerHTML=data;
+            document.getElementById("msg1").innerHTML="Total Student ="+totalstudent;
+            document.getElementById("msg2").innerHTML="Total Pass Student ="+passstudent;
+            document.getElementById("msg3").innerHTML="Total fail Student ="+failstudent;
         }
          const cleardata=()=>{
             document.getElementById("studentid").value="";
@@ -55,20 +64,20 @@
 <body>
 <h1>student Form</h1>
 <label>Student Id</label>
-<input type="text" id="studentid"/>
+<input type="text" id="studentid"/><br><br>
 <label>Student Name</label>  
-<input type="text" id="studentname"/>
+<input type="text" id="studentname"/><br><br>
 <label>English</label> 
-<input type="text" id="english"/>
+<input type="text" id="english"/><br><br>
 
 <label>Math</label>  
-<input type="text" id="math"/>
+<input type="text" id="math"/><br><br>
 <label>Science</label> 
-<input type="text" id="Science"/>
+<input type="text" id="science"/><br><br>
 <hr/> 
 <input type="button" value="submit" onclick="studentform()"/>
 
-<table>
+<table border="1">
     <thead>
         <tr>
             <th>Student Id</th>
@@ -76,6 +85,9 @@
             <th>English</th>
             <th>Math</th>
             <th>Science</th>
+            <th>Total</th>
+            <th>Percentage</th>
+            <th>Result</th>
         </tr>
     </thead>      
     <tbody id="tbldata">
@@ -84,8 +96,8 @@
     </table>
     <hr/>
     <h4 id="msg1"></h4>
-    <h5 id="msg2"></h5>
-    <h6 id="msg3"></h6>
+    <h4 id="msg2"></h4>
+    <h4 id="msg3"></h4>
 
 </body>
 </html>

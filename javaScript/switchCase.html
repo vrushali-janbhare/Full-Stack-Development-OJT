@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const calculate=(ch)=>{
+            alert(ch);
+            let a=Number(document.getElementById("numberone").value);
+            let b=Number(document.getElementById("numbertwo").value);
+            switch(ch){
+                case 1:{
+                    let c=a+b;
+                    document.getElementById("msg").innerHTML="Addition="+c;
+                    break;
+                }
+                case 2:{
+                    let c=a-b;
+                    document.getElementById("msg").innerHTML="Subtract="+c;
+                    break;
+                }
+                case 3:{
+                    let c=a*b;
+                    document.getElementById("msg").innerHTML="multiply="+c;
+                    break;
+
+                }
+                case 4:{
+                    let c=a/b;
+                    document.getElementById("msg").innerHTML="division="+c;
+                    break;
+                }
+                default:{
+                    alert("error alert try again");
+                }
+
+            }
+
+                    
+             }
+        
+
+    </script>
+</head>
+<body>
+    <label>Number1: </label>
+    <input type="text" id="numberone"/>
+    <label>Number2: </label>
+    <input type="text" id="numbertwo"/><hr/>
+    <input type="button" value="Addition" onclick="calculate(1)">
+    <hr/>
+    <input type="button" value="Subtract" onclick="calculate(2)">
+    <hr/>
+    <input type="button" value="multiply" onclick="calculate(3)">
+    <hr/>
+    <input type="button" value="Division" onclick="calculate(4)">
+    <hr/>
+    <h1 id="msg"></h1>    
+</body>
+</html>

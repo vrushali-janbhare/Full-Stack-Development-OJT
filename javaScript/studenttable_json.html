@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let students=[];
+        const Addstudent=()=>{
+            let rollNo=document.getElementById("rollno").value;
+            let Name=document.getElementById("name").value;
+            let Marks=document.getElementById("marks").value;
+            let st={"RollNo":rollNo,"Name":Name,"Marks":Marks};
+            students.push(st);
+            alert("student added succesfully");
+            display();
+            cleardata();
+        }
+        
+        const display=()=>{
+            let i;
+            let data="";
+            for(i=0;i<students.length;i++){
+                data=data+"<tr><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].Marks+"</td></tr>";
+            }
+            document.getElementById("tbldata").innerHTML=data;
+        }
+        const cleardata=()=>{
+            document.getElementById("rollno").value="";
+            document.getElementById("name").value="";
+            document.getElementById("marks").value="";
+        }
+            
+        
+    </script>
+</head>
+<body>
+    <label>RollNO</label>
+    <input type="text" id="rollno"/><br/><br/>
+    <label>Name</label>
+    <input type="text" id="name"/><br/><br/>
+    <label>Marks</label>
+    <input type="text" id="marks"/><br/><br/>
+    <input type="button" value="submit" onclick="Addstudent()"/>
+    <hr/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>RollNO</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+            </thead>
+            <tbody id="tbldata"></tbody>
+    </table>
+
+</body>
+</html>

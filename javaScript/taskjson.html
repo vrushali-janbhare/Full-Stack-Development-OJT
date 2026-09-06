@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let student=[];
+        let totalstudent=0;
+        let passstudent=0;
+        let failstudent=0; 
+        const studentform=()=>{
+            totalstudent++;
+            let id=Number(document.getElementById("studentid"));
+            let name=document.getElementById("studentname");
+            let English=Number(document.getElementById("english"));
+            let Math=Number(document.getElementById("math"));
+           let Science=Number(document.getElementById("science"));
+           let total=English+Math+Science;
+           let percentage=(total/3)*100;
+           if(percentage>=35){
+            let result="P";
+            passstudent++;
+           }
+           else{
+            failstudent++;
+            result="F";
+           }
+           let st={"RollNo":id,"Name":name,"English":English,"Math":Math,"Science":Science,"Total":total,"Percenatge":percentage,"Result":result};
+            student.push(st);
+            alert("student added succesfully");
+            display();
+            cleardata();
+
+
+        }
+        const display=()=>{
+            let i;
+            let data="";
+            for(i=0;i<students.length;i++){
+                data=data+"<tr><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].Marks+"</td></tr>";
+            }
+            document.getElementById("tbldata").innerHTML=data;
+        }
+         const cleardata=()=>{
+            document.getElementById("studentid").value="";
+            document.getElementById("studentname").value="";
+            document.getElementById("english").value="";
+            document.getElementById("math").value="";
+            document.getElementById("science").value="";
+
+        }
+    </script>
+</head>
+<body>
+<h1>student Form</h1>
+<label>Student Id</label>
+<input type="text" id="studentid"/>
+<label>Student Name</label>  
+<input type="text" id="studentname"/>
+<label>English</label> 
+<input type="text" id="english"/>
+
+<label>Math</label>  
+<input type="text" id="math"/>
+<label>Science</label> 
+<input type="text" id="Science"/>
+<hr/> 
+<input type="button" value="submit" onclick="studentform()"/>
+
+<table>
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>student Name</th>
+            <th>English</th>
+            <th>Math</th>
+            <th>Science</th>
+        </tr>
+    </thead>      
+    <tbody id="tbldata">
+
+    </tbody>
+    </table>
+    <hr/>
+    <h4 id="msg1"></h4>
+    <h5 id="msg2"></h5>
+    <h6 id="msg3"></h6>
+
+</body>
+</html>

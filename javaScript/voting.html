@@ -1,0 +1,29 @@
+<!-- <script>
+    age=15;
+    if(age>=18)
+{
+    document.write("your eligible for voting");
+}
+else{
+    document.write("your not eligible for voting");
+}
+</script> -->
+<script>
+    const age_Vote =()=>{
+    let Age=Number(document.getElementById("age_Number").value);
+    if(Age>=18){
+        document.getElementById("age").innerHTML=Age+" your eligible";
+    }
+    else{
+        document.getElementById("age").innerHTML=Age+" your not eligible";
+
+    }
+}
+
+</script>
+<body>
+<label> enter age:</label>
+<input type="text" id="age_Number"/><br/><br/>
+<input type="button" value="submit" onclick="age_Vote()"/>
+<hr/>
+<h1 id="age"></h1>

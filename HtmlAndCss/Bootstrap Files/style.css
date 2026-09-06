@@ -1,0 +1,33 @@
+h1{
+    color: rgb(225, 72, 98);
+    background-color:papayawhip;
+    text-align: center;
+}
+h2{
+    text-align: center;
+    text-transform: uppercase;
+    background-color: bisque;
+    color: blue;
+}
+h3{
+    text-align: center;
+    text-transform: uppercase;
+     background-color: antiquewhite;
+     color: blueviolet;
+}
+h4{
+    text-align: center;
+    text-transform: lowercase;
+    background-color: aquamarine;
+    color: brown;
+    background-image: url(dadya.jpeg);
+}
+pre{
+    font-weight: bold;
+    font-family: Bookman old style;
+}
+table{
+    background-color: antiquewhite;
+    font-size: xx-large;
+
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Bootstrap Files/css/bootstrap.min.css">
+    <script src="Bootstrap Files/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#m1" class="nav-link "data-bs-toggle="tab">menu 1</a>
+        </li>
+        <li class="nav-item">
+            <a href="#m2" class="nav-link" data-bs-toggle="tab">menu 2</a>
+        </li>
+        <li class="nav-item">
+            <a href="#m3" class="nav-link" data-bs-toggle="tab">menu3</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active " id="m1">
+            <form>
+          <div class="card w-50">
+            <div class="card-header"><h3> Enquiry Form</h3></div>
+           <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Student Id</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-12">
+                    <label>Student Name</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+           </div>
+           <div class="card-footer">
+            <input type="button" value="submit" class="btn btn-primary">
+            <input type="button" value="close" class="btn btn-danger">
+           </div>
+          </div>
+          </form>
+        </div>
+     <div class="tab-pane fade show " id="m2">
+          <form>
+            <div class="card w-75">
+                <div class="card-header">
+                    <h3>Enquriy Form</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                       <div class="col-md-4" class="ml-2">
+                            <label>Student Id</label>
+                        <input type="text" class="form-control">
+                       </div>
+                       <div class="col-md-4" class="ml-2">
+                         <label>Student Name</label>
+                         <input type="text" class="form-control">
+                       </div>
+                        <div class="col-md-4" class="ml-2">
+                         <label>Address</label>
+                         <input type="text" class="form-control">
+                       </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-md-4" class="ml-2">
+                         <label>Qualification</label>
+                         <input type="text" class="form-control">
+                       </div>
+                        <div class="col-md-4" class="ml-2">
+                         <label>Moblie No</label>
+                         <input type="text" class="form-control">
+                       </div>
+                        <div class="col-md-4" class="ml-2">
+                         <label>Password</label>
+                         <input type="text" class="form-control">
+                       </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                  <input type="button" value="submit" class="btn btn-primary " >
+                  <input type ="button" value="Close" class="btn btn-danger">
+                </div>
+            </div>
+          </form>
+    
+        </div>
+        <div class="tab-pane fade show " id="m3">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#mymodal"> Open Modal</button>
+            <div class="modal fade" id="mymodal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title"> Student Form</h3>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        how Are you!!!!!!
+                        
+                    </div>
+                    <div   class="modal-footer">
+                     <input type="button" value="submit" class="btn btn-primary">
+                     <input type="button" value="close" class="btn btn-danger"
+                       data-bs-dismiss="modal"/>
+                     </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

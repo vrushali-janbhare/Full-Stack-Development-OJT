@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: gainsboro;
+}
+
+.login-container {
+    width: 500px;
+    margin-top: 8%;
+    background-color: white;
+    margin-left: 25%;
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+    padding: 30px;
+       box-shadow: 3px 3px 10px maroon;
+}
+h1 {
+    text-align: center;
+    color: crimson;
+    padding-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    color:maroon;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+#username{
+    width: 95%;
+    padding: 12px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#password {
+    width: 95%;
+    padding: 12px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#submit {
+    width: 50%;
+    margin-left: 25%;
+    padding: 15px;
+    margin-top: 35px;
+    background-color: white;
+    color: crimson;
+    border: 2px solid  gainsboro;
+    border-radius: 10px;
+    font-size: 20px;
+   
+}
+#submit:hover {
+    background-color:lightcoral;
+    color: white;
+}

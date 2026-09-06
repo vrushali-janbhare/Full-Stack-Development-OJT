@@ -1,0 +1,31 @@
+<script>
+    const total=()=>{
+        let english=Number(document.getElementById("english").value);
+        let math=Number(document.getElementById("math").value);
+        let science=Number(document.getElementById("science").value);
+        let total=english+math+science;
+        document.getElementById("msg").innerHTML="total="+total;
+
+        let percentage=(total*100)/300;
+        document.getElementById("HI").innerHTML="percentage="+percentage;
+
+
+    }
+
+</script>
+<body>
+    <label>english:</label>
+    <input type="text" id="english"/><br/><br/>
+    <label>math:</label>
+    <input type="text" id="math"/><br/><br/>
+    <label>science:</label>
+    <input type="text" id="science"/><br/><br/>
+    <input type="button" value="submit" onclick="total()">
+    <hr/>
+    <h1 id="msg"></h1>
+    <H1 id="HI"></H1>
+    
+    
+    
+    
+</body>

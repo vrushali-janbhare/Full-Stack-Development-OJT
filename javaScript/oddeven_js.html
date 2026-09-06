@@ -1,0 +1,23 @@
+<script>
+    const number_odd_even=()=>{
+    let number=Number(document.getElementById("even_or_odd").value);
+
+    if(number%2==0)
+{
+    document.getElementById("even").innerHTML=number+" even number";
+
+}
+else{
+        document.getElementById("even").innerHTML=number+" odd number";
+
+}
+ }
+
+</script>
+<body>
+    <label>enter number1: </label>
+    <input type="text" id="even_or_odd"><br/><br/>
+    <input type="button" value="submit" onclick="number_odd_even()"/>
+    <hr/>
+    <h1 id="even"></h1>
+</body>

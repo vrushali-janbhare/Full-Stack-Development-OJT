@@ -1,0 +1,64 @@
+<!-- <script>
+    let cities=[];
+    const addcityes=()=>{
+        let c=document.getElementById("txtct").value;
+        let i=cities.indexOf(c.toUpperCase());
+        alert(i);
+        if(i==-1){
+                   cities.push(c.toUpperCase());
+                   alert("city added succesfully");
+        }
+        else{
+            alert("already exit");
+        }
+       
+        display();
+    }
+    const display=()=>{
+        let i;
+        let data="";
+        for(i=0;i<cities.length;i++){
+            data=data +"<li>"+cities[i]+ "<input type='button' value='x' onclick='Deletecity("+i+")'/> </li>";
+        }
+        document.getElementById("msg").innerHTML=data;
+       document.getElementById("txtct").value="";
+    }
+    const Deletecity=(p)=>{
+        cities.splice(p,1);
+                alert("city deleted succesfully");
+      display();
+    }
+</script> 
+<body>
+    <lable>city</lable>
+    <input type="text" id="txtct"/><br/><br/>
+    <input type="button" value="submit" onclick="addcityes()"/>
+    <hr/>
+    <ul id="msg"></ul> 
+    </body>
+</body> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let cities=[];
+        const  addcityes = ()=>{
+            let c=document.getElementById().value;
+        }
+    </script>
+</head>
+<body>
+     <label>Enter The City Name :</label>
+     <input type="text"  id="txtct"><br><br>
+     <hr>
+     <input type="button" value="submit" onclick="addcityes()">
+     <hr>
+     <ul id="msg"></ul>
+</body>
+</html>

@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let  total,percentage;
+        let result="";
+        let student=[];
+        
         const calculate=()=>{
-            let english=Number(document.getElementById("english").value);
+              let english=Number(document.getElementById("english").value);
              let math=Number(document.getElementById("math").value);
             let science=Number(document.getElementById("science").value);
-            let total=english+math+science;
-            let percentage=Math.floor((total/300)*100);
-            let result="";
+             total=english+math+science;
+             percentage=Math.floor((total/300)*100);
+          
             if(percentage>35){
                 result="pass";
             }
@@ -21,13 +25,45 @@
             document.getElementById("total").value=total;
             document.getElementById("percentage").value=percentage;
              document.getElementById("result").value=result;
-
-
+        }
+        const Addstudent=()=>{
+            let name=document.getElementById("name").value;
+            let Student_id=document.getElementById("studentid").value;
+           let english=Number(document.getElementById("english").value);
+             let math=Number(document.getElementById("math").value);
+            let science=Number(document.getElementById("science").value);
+            let st={"Id":Student_id,"Name":name,"English":english,"Math":math,"Science":science,"Total":total,"Percentage":percentage,"Result":result};
+           student.push(st);
+            let i;
+           let data="";
+           for(i=0;i<student.length;i++){
+           data=data+ "<tr><td>"+student[i].Id+"</td><td>"+student[i].Name+"</td><td>"+student[i].English+"</td><td>"+student[i].Math+"</td><td>"+student[i].Science+"</td><td>"+student[i].Total+"</td><td>"+student[i].Percentage+"</td><td>"+student[i].Result+"</td></tr>";
+           }
+           document.getElementById("tbldata").innerHTML=data;
+           cleardata();
+        }
+         const cleardata=()=>{
+            document.getElementById("studentid").value="";
+            document.getElementById("name").value="";
+            document.getElementById("english").value="";
+            document.getElementById("math").value="";
+            document.getElementById("science").value="";
+            document.getElementById("total").value="";
+       document.getElementById("percentage").value="";
+       document.getElementById("result").value="";
         }
     </script>
 </head>
 <body>
   <table>
+      <tr>
+       <td>Student Id:</td>
+       <td> <input type="text" id="studentid" onchange="calculate()"></td>
+   </tr>
+     <tr>
+       <td>Student Name :</td>
+       <td> <input type="text" id="name" onchange="calculate()"></td>
+   </tr>
     <tr>
        <td>English:</td>
        <td> <input type="text" id="english" onchange="calculate()"></td>
@@ -56,7 +92,24 @@
         <td> <input type="text" id="result" ></td>
 
 </tr>
+<tr>
+    <td><input type="button" value="submit" onclick="Addstudent()"></td>
+    </tr>
 </table>
-
+<table border="1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>student Name</th>
+            <th>English</th>
+            <th>Math</th>
+            <th>Science</th>
+            <th>Total</th>
+            <th>Percentage</th>
+            <th>Result</th>
+        </tr>
+    </thead>      
+    <tbody id="tbldata"></tbody>
+    </table>
 </body>
 </html>

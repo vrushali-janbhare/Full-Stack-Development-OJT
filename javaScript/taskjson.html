@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .col-md-5{
+            background-color: lightcyan;
+        }
+        .col-md-7{
+            background-color: cornsilk;
+        }
+        .card-title{
+            background-color:cornflowerblue;
+        }
+    </style>
     <script>
         let students=[];
         let totalstudent=0;
@@ -15,20 +26,23 @@
             let id=Number(document.getElementById("studentid").value);
             let name=document.getElementById("studentname").value;
             let English=Number(document.getElementById("english").value);
-            let Math=Number(document.getElementById("math").value);
+            let Maths=Number(document.getElementById("math").value);
            let Science=Number(document.getElementById("science").value);
-           let total=English+Math+Science;
-            percentage=(total/300)*100;
-            let  result;
-           if(percentage>=35){
-           result="P";
+           let total=English+Maths+Science;
+            percentage=Math.floor((total/300)*100);
+            let  res="";
+            let col=""
+           if(percentage>35){
+           res="Pass";
             passstudent++;
-           }
+            col="green";
+        }
            else{
+            res="Fail";
             failstudent++;
-            result="F";
+            col="red";
            }
-           let st={"RollNo":id,"Name":name,"English":English,"Math":Math,"Science":Science,"Total":total,"Percenatge":percentage,"Result":result};
+           let st={"RollNo":id,"Name":name,"English":English,"Maths":Maths,"Science":Science,"Total":total,"Percenatge":percentage,"Result":res,"Color":col};
             students.push(st);
             alert("student added succesfully");
             display();
@@ -36,16 +50,10 @@
         }
         const display=()=>{
             let i;
-            let data=" ";
+            let data="";
             for(i=0;i<students.length;i++){
-                if(percentage>=35){
-                data=data+"<tr><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].English+"</td><td>"+students[i].Math+"</td><td>"+students[i].Science+"</td><td>"+students[i].Total+"</td><td>"+students[i].Percenatge+"</td><td style='color:green'>"+students[i].Result+"</td>";
-                    }
-                    else{
-                    data=data+"<tr><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].English+"</td><td>"+students[i].Math+"</td><td>"+students[i].Science+"</td><td>"+students[i].Total+"</td><td>"+students[i].Percenatge+"</td><td style='color:red'>"+students[i].Result+"</td>";
-
-                    }
-            }
+                data=data+"<tr ><td>"+students[i].RollNo+"</td><td>"+students[i].Name+"</td> <td>"+students[i].English+"</td><td>"+students[i].Maths+"</td><td>"+students[i].Science+"</td><td>"+students[i].Total+"</td><td>"+students[i].Percenatge+"</td><td style='color:"+students[i].Color+"' >"+students[i].Result+"</td>";
+               }
             document.getElementById("tbldata").innerHTML=data;
             document.getElementById("msg1").innerHTML="Total Student ="+totalstudent;
             document.getElementById("msg2").innerHTML="Total Pass Student ="+passstudent;
@@ -60,24 +68,34 @@
 
         }
     </script>
-</head>
+    <link rel="stylesheet" href="Bootstrap Files/css/bootstrap.min.css">
+    <script src="Bootstrap Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Bootstrap Files/fonts/font/bootstrap-icons.css"></head>
 <body>
-<h1>student Form</h1>
-<label>Student Id</label>
+<div class="card ">   
+   <div class="card-header">   
+    <h1 class=" card-title">student Form</h1>
+    </div>
+<div class="card-body">
+<div class="row">   
+<div class="col-md-5">     
+<label>Student Id :</label><br>
 <input type="text" id="studentid"/><br><br>
-<label>Student Name</label>  
+<label>Student Name :</label>  <br>
 <input type="text" id="studentname"/><br><br>
-<label>English</label> 
+<label>English :</label> <br>
 <input type="text" id="english"/><br><br>
 
-<label>Math</label>  
+<label>Math :</label>  <br>
 <input type="text" id="math"/><br><br>
-<label>Science</label> 
+<label>Science :</label> <br>
 <input type="text" id="science"/><br><br>
 <hr/> 
-<input type="button" value="submit" onclick="studentform()"/>
+<input type="button"   value="submit"  class="btn btn-primary"onclick="studentform()"/>
 
-<table border="1">
+</div> 
+<div class="col-md-7">    
+<table border="1" class="table table-bordered">
     <thead>
         <tr>
             <th>Student Id</th>
@@ -90,14 +108,16 @@
             <th>Result</th>
         </tr>
     </thead>      
-    <tbody id="tbldata">
-
-    </tbody>
+    <tbody id="tbldata"></tbody>
     </table>
-    <hr/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="mt-3">
     <h4 id="msg1"></h4>
     <h4 id="msg2"></h4>
     <h4 id="msg3"></h4>
-
+    </div>
 </body>
 </html>

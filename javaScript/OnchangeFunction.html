@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const calculate=()=>{
+            let english=Number(document.getElementById("english").value);
+             let math=Number(document.getElementById("math").value);
+            let science=Number(document.getElementById("science").value);
+            let total=english+math+science;
+            let percentage=Math.floor((total/300)*100);
+            let result="";
+            if(percentage>35){
+                result="pass";
+            }
+            else{
+                result="fail";
+            }
+            document.getElementById("total").value=total;
+            document.getElementById("percentage").value=percentage;
+             document.getElementById("result").value=result;
+
+
+        }
+    </script>
+</head>
+<body>
+  <table>
+    <tr>
+       <td>English:</td>
+       <td> <input type="text" id="english" onchange="calculate()"></td>
+   </tr>
+     <tr>
+        <td> Math:</td>
+        <td> <input type="text" id="math" onchange="calculate()"></td>
+     </tr>
+     <tr>
+       <td>Science :</td>
+       <td> <input type="text" id="science" onchange="calculate()"></td>
+    </tr>
+   <tr>
+      <td> Total</td>
+              <td> <input type="text" id="total" ></td>
+
+   </tr>
+
+<tr>
+      <td>Percentage</td>
+        <td> <input type="text" id="percentage" ></td>
+
+</tr> 
+<tr>
+<td>Result</td>
+        <td> <input type="text" id="result" ></td>
+
+</tr>
+</table>
+
+</body>
+</html>

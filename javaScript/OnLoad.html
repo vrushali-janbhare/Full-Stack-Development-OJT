@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let student=[{"RollNo":101,"Name":"Vrushali","Marks":98},
+                     {"RollNo":102,"Name":"Ashwini","Marks":97}
+                    ,{"RollNo":103,"Name":"pornima","Marks":96},
+                    {"RollNo":104,"Name":"Sanyukti","Marks":95},
+                    {"RollNo":105,"Name":"Om","Marks":94}]
+    const Display=()=>{
+        let data="";
+        let i;
+        for(i=0;i<student.length;i++){
+            data=data+"<tr><td>"+student[i].RollNo+"</td><td>"+student[i].Name+"</td><td>"+student[i].Marks+"</td></tr>";
+        }
+        document.getElementById("tbldata").innerHTML=data;
+    }
+    </script>
+</head>
+<body onload="Display()">
+    <table border="1" >
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name </th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody id="tbldata">
+
+        </tbody>
+    </table>
+</body>
+</html>9

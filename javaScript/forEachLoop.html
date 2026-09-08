@@ -13,7 +13,7 @@
     const Display=()=>{
         let data="";
         student.forEach(function(d,i){
-            data=data+"<tr><td>"+d.RollNo+"</td><td>"+d.Name+"</td><td>"+d.Marks+"</td></tr>";
+            data=data+"<tr><td>"+ i+"</td><td>"+d.RollNo+"</td><td>"+d.Name+"</td><td>"+d.Marks+"</td></tr>";
     });
      document.getElementById("tbldata").innerHTML=data;
 }

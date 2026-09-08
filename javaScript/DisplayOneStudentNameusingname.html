@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+<!-- display Student record using  RollNo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let student=[{ "RollNo":101,"Name":"Vrushali","Marks":98},
+                     {"RollNo":102,"Name":"Ashwini","Marks":97}
+                    ,{"RollNo":103,"Name":"pornima","Marks":96},
+                    {"RollNo":104,"Name":"Sanyukti","Marks":95},
+                    {"RollNo":105,"Name":"Om","Marks":94}
+                  ,{"RollNo":106,"Name":"Siya","Marks":93}
+                  ,{"RollNo":107,"Name":"Anisha","Marks":92}
+                  ,{"RollNo":108,"Name":"Savita","Marks":91}
+                  ,{"RollNo":109,"Name":"Amol","Marks":90}
+                  ,{"RollNo":110,"Name":"Nikita","Marks":89}];
+  const filterByRollNo=()=>{
+        let t=document.getElementById("name").value;
+                    if(t!=""){
+                        let data="";
+                        let i;
+                        student.forEach(function(d,i){
+                         if(d.Name==t)
+                         {
+                            data=data+"<tr><td>"+i+"</td><td>"+d.RollNo+"</td><td>"+d.Name+"</td><td>"+d.Marks+"</td></tr>";
+                         }
+                        });
+                        document.getElementById("tbldata").innerHTML=data;
+                    }
+                    else{
+                        Display();
+                    }
+                  }
+    const Display=()=>{
+        let data="";
+        student.forEach(function(d,i){
+            data=data+"<tr><td>"+ i+"</td><td>"+d.RollNo+"</td><td>"+d.Name+"</td><td>"+d.Marks+"</td></tr>";
+    });
+     document.getElementById("tbldata").innerHTML=data;
+}
+    </script>
+</head>
+<body >
+    <table border="1">
+   <thead>
+    <tr>
+        <th>Index</th>
+        <th>Roll No 
+        <th>Name <br>
+        <input type="text" id="name" onkeyup="filterByRollNo()"></th></th>
+        <th> Marks</th>
+    </tr>
+   </thead>
+   <tbody id="tbldata">
+  
+   </tbody>
+    </table>
+</body>
+</html>

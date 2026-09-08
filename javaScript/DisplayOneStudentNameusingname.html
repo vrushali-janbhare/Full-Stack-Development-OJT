@@ -16,13 +16,14 @@
                   ,{"RollNo":108,"Name":"Savita","Marks":91}
                   ,{"RollNo":109,"Name":"Amol","Marks":90}
                   ,{"RollNo":110,"Name":"Nikita","Marks":89}];
-  const filterByRollNo=()=>{
+  const filterByName=()=>{
         let t=document.getElementById("name").value;
                     if(t!=""){
                         let data="";
                         let i;
                         student.forEach(function(d,i){
-                         if(d.Name==t)
+                        //  if(d.Name==t) this is for only we Enter full name 
+                        if(d.Name.toUpperCase().includes(t.toUpperCase()))
                          {
                             data=data+"<tr><td>"+i+"</td><td>"+d.RollNo+"</td><td>"+d.Name+"</td><td>"+d.Marks+"</td></tr>";
                          }
@@ -49,7 +50,7 @@
         <th>Index</th>
         <th>Roll No 
         <th>Name <br>
-        <input type="text" id="name" onkeyup="filterByRollNo()"></th></th>
+        <input type="text" id="name" onkeyup="filterByName()"></th></th>
         <th> Marks</th>
     </tr>
    </thead>

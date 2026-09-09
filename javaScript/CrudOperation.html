@@ -7,6 +7,25 @@
      <link rel="stylesheet" href="Bootstrap Files/css/bootstrap.min.css">
     <script src="Bootstrap Files/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Bootstrap Files/fonts/font/bootstrap-icons.css">
+    <style>
+        .card-header{
+            background-color:#f3b9e5;
+        }
+     .col-md-4{
+        background-color : #f3d9e5;
+     }
+     .col-md-8{
+        background-color: #f7b9c4;
+     }
+     #msg{
+        background-color:#f3d9e5;
+        border:2px  black;
+     }
+     .form-control{
+        background-color: lavender;
+        border:1px solid black;
+     }
+    </style>
     <script>
         let student=[];
         const addedstudent =()=>{
@@ -22,11 +41,13 @@
 
         const display=()=>{
             let data="";
-            let i;
-            for(i=0;i<student.length;i++){
-                data=data+"<tr><td>"+student[i].RollNo+"</td><td>"+student[i].StudentName+"</td><td>"+ student[i].Qualifications+"</td><td>"+student[i].Percentages+"</td></tr>";
-            }
+            student.forEach(function(d,i){
+                data=data+"<tr><td>"+student[i].RollNo+"</td><td>"+student[i].StudentName+"</td><td>"+ student[i].Qualifications+"</td><td>"+student[i].Percentages+"</td><td> <input type='button' value='View' onclick='viewstudent("+i+")'>";+"</td></tr>";
+            });
             document.getElementById("tbldata").innerHTML=data;
+        }
+        const viewstudent=(p)=>{
+            alert(p);
         }
         const cleardata=()=>{
             document.getElementById("RollNo").value="";
@@ -67,13 +88,14 @@
 </form>
    </div>
    <div class="col-md-8">
-    <table class=" table table-bordered">
+    <table class=" table table-bordered" id="msg">
         <tr>
             <thead>
                 <th> Student Id </th>
                 <th> Student Name  </th>
                 <th> Qualification  </th>
                 <th> Percentage </th>
+                <th>VIEW Student </th>
             </thead>
             <tbody id="tbldata">
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="Bootstrap Files/css/bootstrap.min.css">
+    <script src="Bootstrap Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Bootstrap Files/fonts/font/bootstrap-icons.css">
+    <script>
+        let student=[];
+        const addedstudent =()=>{
+         let id=document.getElementById("RollNo").value;
+         let name=document.getElementById("Name").value;
+         let qualification=document.getElementById("Qualification").value;
+         let percentage=document.getElementById("Percentage").value;
+         let st={"RollNo":id,"StudentName":name,"Qualifications":qualification,"Percentages":percentage};
+         student.push(st);
+         display();
+         cleardata();
+        }
+
+        const display=()=>{
+            let data="";
+            let i;
+            for(i=0;i<student.length;i++){
+                data=data+"<tr><td>"+student[i].RollNo+"</td><td>"+student[i].StudentName+"</td><td>"+ student[i].Qualifications+"</td><td>"+student[i].Percentages+"</td></tr>";
+            }
+            document.getElementById("tbldata").innerHTML=data;
+        }
+        const cleardata=()=>{
+            document.getElementById("RollNo").value="";
+            document.getElementById("Name").value="";
+             document.getElementById("Qualification").value="";
+            document.getElementById("Percentage").value="";             
+        }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">student form</h1>
+        </div>
+   <div class="card-body">
+    <div class="row">
+    <div class="col-md-4">
+   <form>
+    <div class="md-3">
+    <label> Student Id</label>
+    <input type="text" id="RollNo" class="form-control"><br><br>
+     </div>
+     <div class="md-3">
+    <label>Student Name</label>
+    <input type="text" id="Name" class="form-control"><br><br>
+     </div>
+     <div class="md-3">
+    <label>Qualification </label>
+    <input type="text" id="Qualification" class="form-control"><br><br>
+     </div>
+     <div class="md-3">
+    <label>Percentage</label>
+     <input type="text" id="Percentage" class="form-control"> <br><br>
+      </div>
+      <div class="card-footer">
+   <input type="button" value="submit" class="btn btn-primary" onclick="addedstudent()">
+ </div> 
+</form>
+   </div>
+   <div class="col-md-8">
+    <table class=" table table-bordered">
+        <tr>
+            <thead>
+                <th> Student Id </th>
+                <th> Student Name  </th>
+                <th> Qualification  </th>
+                <th> Percentage </th>
+            </thead>
+            <tbody id="tbldata">
+
+            </tbody>
+        </tr>
+    </table>
+    </div>
+   </div>
+  </div>
+</div>
+</body>
+</html>

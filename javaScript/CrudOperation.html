@@ -42,12 +42,17 @@
         const display=()=>{
             let data="";
             student.forEach(function(d,i){
-                data=data+"<tr><td>"+student[i].RollNo+"</td><td>"+student[i].StudentName+"</td><td>"+ student[i].Qualifications+"</td><td>"+student[i].Percentages+"</td><td> <input type='button' value='View' onclick='viewstudent("+i+")'>";+"</td></tr>";
+                data=data+"<tr><td>"+student[i].RollNo+"</td><td>"+student[i].StudentName+"</td><td>"+ student[i].Qualifications+"</td><td>"+student[i].Percentages+"</td><td> <input type='button' value='View' onclick='viewstudent("+i+")'></td></tr>";
             });
             document.getElementById("tbldata").innerHTML=data;
         }
         const viewstudent=(p)=>{
             alert(p);
+            let s=student[p];
+            document.getElementById("RollNo").value=s.RollNo;
+            document.getElementById("Name").value=s.StudentName;
+            document.getElementById("Qualification").value=s.Qualifications;
+            document.getElementById("Percentage").value=s.Percentages;
         }
         const cleardata=()=>{
             document.getElementById("RollNo").value="";

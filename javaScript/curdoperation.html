@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let states=[{"stateId":1,"StateName":"Maharashtra"},
+        {"stateId":2,"StateName":"gujrat"},
+        {"stateId":3,"StateName":"UP"},
+        {"stateId":4,"StateName":"karnataka"}
+        ];
+        const Fillstates=()=>{
+            let data="";
+            states.forEach(function(d,i){
+                data=data+"<option>"+d.StateName+"</option>";
+            });
+            document.getElementById("ddstate").innerHTML=data;
+        }
+        
+    </script>
+</head>
+<body onload="Fillstates()">
+    <table>
+        <tr>
+            <td>States</td>
+            <td>
+                <select id="ddstate">
+
+                </select>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

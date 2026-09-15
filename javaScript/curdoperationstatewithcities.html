@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let statecity=[];
+        let states=[{"stateId":1,"StateName":"Maharashtra"},
+        {"stateId":2,"StateName":"gujrat"},
+        {"stateId":3,"StateName":"UP"},
+        {"stateId":4,"StateName":"karnataka"}
+        ];
+        const Fillstates=()=>{
+            
+            let data="<option selected disabled>select state</option>";
+            states.forEach(function(d,i){
+                data=data+"<option value='"+d.stateId+"'>"+d.StateName+"</option>";
+            });
+            document.getElementById("ddstate").innerHTML=data;
+        }
+        let cities=[{"cityId":1,"cityName":"pune","stateId":1},
+                    {"cityId":2,"cityName":"mumbai","stateId":1},
+                    {"cityId":3,"cityName":"Baramati","stateId":1},
+                    {"cityId":4,"cityName":"surat","stateId":2},
+                    {"cityId":5,"cityName":"gandinagar","stateId":1},
+                    {"cityId":6,"cityName":"vijapur","stateId":4},
+                    {"cityId":7,"cityName":"ayodya","stateId":3},
+
+                ];
+        const Fillcity=()=>{
+      
+            let sdata=document.getElementById("ddstate").value;
+            let data="";
+            alert(sdata);
+            cities.forEach(function(d,i){
+                if(sdata==d.stateId){
+                    data=data+"<option>"+d.cityName+"</option>";
+                }
+
+            });
+            document.getElementById("ddcity").innerHTML=data;
+        } 
+        const addstatecity=()=>{
+            let sdata=document.getElementById("ddstate").value;
+            let cdata=document.getElementById("ddcity").value;
+
+            let st={"state_name":sdata,"city_name":cdata};
+            statecity.push(st);
+            alert("state city added succesfully");
+            display();
+        }    
+        const display=()=>{ 
+            let data="";
+            statecity.forEach(function(d,i){
+                data=data+"<tr><td>"+d.state_name+"</td><td>"+d.city_name+"</td></tr>";
+                    
+            });
+            document.getElementById("tbldata").innerHTML=data;
+        }      
+
+
+
+
+        
+        
+    </script>
+</head>
+<body onload="Fillstates()">
+    <table>
+        <tr>
+            <td>States</td>
+            <td>
+                <select id="ddstate" onchange="Fillcity()">
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>city</td>
+            <td>
+                <select id="ddcity">
+
+                </select>
+            </td>
+        </tr>
+    <tr>
+   <td><input type="button" value="submit" onclick="addstatecity()"/>   
+    </td>
+    </tr>
+    </table>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>state Name</th>
+                <th>city Name</th>  
+            </tr>
+        </thead>
+        <tbody id="tbldata"></tbody>
+    </table>
+
+
+</body>
+</html>

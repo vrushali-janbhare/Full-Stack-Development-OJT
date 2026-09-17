@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const fetchstudent=async()=>{
+            let response=await fetch("https://dummyapis.ciitstudent.com/api/student");
+            let students=await response.json();
+            let data="";
+            students.forEach(function(d,i){
+                data=data+"<tr><td>"+d.studentId+"</td><td>"+d.studentName+"</td><td>"+d.mobileNumber+"</td><td>"+d.emailAddress+"</td><td>"+d.city+"</td><td></tr>"
+                
+            });
+            document.getElementById("tbldata").innerHTML=data;
+        }
+        fetchstudent();
+    </script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>studentId</th>
+                <th>studentName</th>
+                <th>mobileNumber</th>
+                <th>EmailAddress</th>
+                <th>city</th>
+
+            </tr>
+        </thead>
+        <tbody id="tbldata"></tbody>
+    </table>
+</body>
+</html>

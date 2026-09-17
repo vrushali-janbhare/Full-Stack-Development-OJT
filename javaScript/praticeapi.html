@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let student=[];
+     
+        const fetchstudent=async()=>{
+            let response=await fetch("https://dummyapis.ciitstudent.com/api/student");
+            let student=await response.json();
+            let data="";
+            student.forEach(function(d,i){
+                data=data+"<tr><td>"+d.studentId+"</td><td>"+d.studentName+"</td><td>"+d.mobileNumber+"</td><td>"+d.emailAddress+"</td><td>"+d.city+"</td><td></tr>"
+            });
+            document.getElementById("tbldata").innerHTML=data;
+
+            
+        }
+        fetchstudent();
+
+        AddStudent=async()=>{
+
+            let sName=document.getElementById("txtstudentName").value;
+            let email=document.getElementById("txtemailId").value;
+            let mobileNo=document.getElementById("txtMobileNo").value; 
+            let city=document.getElementById("txtCity").value;
+            let st={"studentName":sName,"mobileNumber":mobileNo,"emailAddress":email,"city":city};
+            let response =await fetch("https://dummyapis.ciitstudent.com/api/student",
+                {
+                    method:"post",
+                    body:JSON.stringify(st),
+                    headers:{
+                        "Content-Type":"application/json"
+                    }
+                });
+                let data=await response.text;
+                alert(data);
+                fetchstudent();
+        }
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>    
+            <td>studentName</td>
+            <td><input type="text" id="txtstudentName"></td>
+        </tr> 
+         <tr>   
+            <td>Student mobile Number</td>
+            <td><input type="text" id="txtMobileNo"></td>
+        </tr> 
+         <tr>  
+            <td>Student Email Address</td> 
+            <td><input type="text" id="txtemailId"></td>
+        </tr>  
+         <tr>  
+            <td>City</td>
+              <td><input type="text" id="txtCity"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Submit" onclick="AddStudent()"></td>
+        </tr>
+    </table>
+    <hr>
+    <table border="1">
+        <thead>d
+            <tr>
+                <th>studentId</th>
+                <th>studentName</th>
+                <th>mobileNumber</th>
+                <th>EmailAddress</th>
+                <th>city</th>
+            </tr>
+        </thead>
+        <tbody id="tbldata"></tbody>
+        
+    </table>
+</body>
+</html>

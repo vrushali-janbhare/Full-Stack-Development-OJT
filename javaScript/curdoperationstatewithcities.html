@@ -6,6 +6,7 @@
     <title>Document</title>
     <script>
         let statecity=[];
+        let=state_name="";
         let states=[{"stateId":1,"StateName":"Maharashtra"},
         {"stateId":2,"StateName":"gujrat"},
         {"stateId":3,"StateName":"UP"},
@@ -15,7 +16,7 @@
             
             let data="<option selected disabled>select state</option>";
             states.forEach(function(d,i){
-                data=data+"<option value='"+d.stateId+"'>"+d.StateName+"</option>";
+                data=data+"<option value='"+d.stateId+"_"+d.StateName+"'>"+d.StateName+"</option>";
             });
             document.getElementById("ddstate").innerHTML=data;
         }
@@ -25,7 +26,7 @@
                     {"cityId":4,"cityName":"surat","stateId":2},
                     {"cityId":5,"cityName":"gandinagar","stateId":1},
                     {"cityId":6,"cityName":"vijapur","stateId":4},
-                    {"cityId":7,"cityName":"ayodya","stateId":3},
+                    {"cityId":7,"cityName":"ayodya","stateId":5},
 
                 ];
         const Fillcity=()=>{
@@ -33,8 +34,14 @@
             let sdata=document.getElementById("ddstate").value;
             let data="";
             alert(sdata);
+            let st=sdata.split("_");
+            alert(st);
+            state_name=st[1];
+            alert(state_name);
+            let sid=st[0];
+            alert(sid);
             cities.forEach(function(d,i){
-                if(sdata==d.stateId){
+                if(sid==d.stateId){
                     data=data+"<option>"+d.cityName+"</option>";
                 }
 
